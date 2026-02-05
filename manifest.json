@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Pinterest Board & Image Downloader",
+  "description": "Download Pinterest images from pins and boards with readable file names.",
+  "version": "1.0.0",
+  "permissions": [
+    "downloads",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://*.pinterest.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.pinterest.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
